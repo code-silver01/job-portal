@@ -1,98 +1,87 @@
-<div align="center">
+# 💼 All in one App:
 
-<img src="./screenshots/illustration.png" alt="Job Interview" width="300" height="356.5">
+A full-featured collaboration app built with Django and HTML/CSS layouts that allows users to view, post, and manage job listings. The project is in active development and is being expanded to include event and community features to support broader professional networking and collaboration.
 
-# Django Job Portal
+---
 
-</div>
+## 🚀 Features
 
-## Django Job Portal
+### ✅ Job Listings (Completed)
+- Users can view job postings in a clean card layout.
+- Logged-in users can create, edit, and manage job postings through a personal dashboard.
+- Supports job filtering and sorting.
 
-Live: [Demo](add link here)
+---
 
-Used Tech Stack
+## 📅 Upcoming Features (In Development)
 
-1. Django
-2. Sqlite
+### 🎉 Events Page
+- *Event Feed*: Users can browse through hosted events displayed in a responsive card layout (similar to job listings).
+- *Event Creation & Management* (Coming Soon): Users will be able to organize and manage events using the *Dashboard* in the navigation bar.
 
-### Screenshots
+### 💬 Forums Page
+- *Community Chatrooms*: Users can explore various chatroom communities, listed in a card layout format.
+- *Private & Group Chatrooms* (Coming Soon): Users will be able to create personal or private chat groups, accessible and manageable via the *Dashboard*.
 
-## Home page
-<img src="screenshots/one.png" height="800">
+---
 
-## Resume template page
-<img src="screenshots/six.png" height="800">
-<img src="screenshots/seven.png" height="800">
+## 🧭 Navigation Overview
 
-## Login page
-<img src="screenshots/five.png" width="800" alt="login">
+- *Home* – Job feed and listings  
+- *Dashboard* – Central hub for managing job posts (and soon events & forums)
+- *Events* – Browse and create upcoming events (coming soon)
+- *Forums* – Community-based discussion/chatrooms (coming soon)
 
-## Add new position as employer
-<img src="screenshots/two.png" width="800" alt="form">
+Local environment :
 
-## Job details
-<img src="screenshots/three.png" height="800" alt="details">
+Install
+Create a virtual environment
 
-## Swagger API
-<img src="screenshots/four.png" height="800">
+virtualenv venv
 
-<a name="local-venv"></a>
-### Local environment
+Or
 
-#### Install
+python3.11 -m venv venv
 
-1. Create a virtual environment
+Activate it
 
-    `virtualenv venv`
+source venv/bin/activate
 
-    Or
+Clone the repository and install the packages in the virtual env:
 
-    `python3.11 -m venv venv`
+pip install -r requirements.txt
 
-2. Activate it
+Add .env file.
 
-    `source venv/bin/activate`
+cp .env.dev.sample .env
 
-3. Clone the repository and install the packages in the virtual env:
+Add Github client ID and client secret in the .env file
 
-    `pip install -r requirements.txt`
+Run
+With the venv activate it, execute:
 
-4. Add `.env` file.
+python manage.py collectstatic
 
-    `cp .env.dev.sample .env`
+Note : Collect static is not necessary when debug is True (in dev mode)
 
-5. Add Github client ID and client secret in the `.env` file
+Create initial database:
 
-#### Run
+python manage.py migrate
 
-1. With the venv activate it, execute:
+Load demo data (optional):
 
-    python manage.py collectstatic
+python manage.py loaddata fixtures/app_name_initial_data.json --app app.model_name
 
-   *Note* : Collect static is not necessary when debug is True (in dev mode)
+Run server:
 
-2. Create initial database:
+python manage.py runserver
 
-    `python manage.py migrate`
+Default django admin credentials:
 
-3. Load demo data (optional):
+email: admin@admin.com password: admin
 
-    `python manage.py loaddata fixtures/app_name_initial_data.json --app app.model_name`
+Run test:
+python manage.py test
 
-4. Run server:
-
-    `python manage.py runserver`
-
-5. Default django admin credentials:
-
-    `email: admin@admin.com`
-    `password: admin`
-
-#### Run test:
-``python manage.py test``
-
-#### To dump data:
-``python manage.py dumpdata --format=json --indent 4 app_name > app_name/fixtures/app_name_initial_data.json``
-
-
-Show your support by 🌟 the project!!
+To dump data:
+python manage.py dumpdata --format=json --indent 4 app_name > app_name/fixtures/app_name_initial_data.json
